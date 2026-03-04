@@ -64,6 +64,17 @@ RSpec.describe Contents::Create do
         expect(result.errors).to have_key(:social_media_url)
       end
 
+      it "returns a failure result when provider is missing" do
+        params = {
+          title: "My Post",
+          social_media_url: "https://instagram.com/p/abc123"
+        }
+        result = described_class.new(creator.id, params).call
+
+        expect(result).to be_failure
+        expect(result.errors).to have_key(:social_media_provider)
+      end
+
       it "does not create a record on failure" do
         params = {
           title: "",
