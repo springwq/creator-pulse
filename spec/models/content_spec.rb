@@ -11,7 +11,7 @@ RSpec.describe Content, type: :model do
   # URL format validation
   describe "social_media_url format" do
     it "accepts valid URLs" do
-      valid_urls = ["https://instagram.com/p/123", "http://example.com"]
+      valid_urls = [ "https://instagram.com/p/123", "http://example.com" ]
 
       valid_urls.each do |url|
         content = build(:content, social_media_url: url)
@@ -20,7 +20,7 @@ RSpec.describe Content, type: :model do
     end
 
     it "rejects invalid URLs" do
-      invalid_urls = ["not-a-url", "ftp://bad.com", ""]
+      invalid_urls = [ "not-a-url", "ftp://bad.com", "" ]
 
       invalid_urls.each do |url|
         content = build(:content, social_media_url: url)

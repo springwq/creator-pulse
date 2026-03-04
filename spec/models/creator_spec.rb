@@ -20,7 +20,7 @@ RSpec.describe Creator, type: :model do
     end
 
     it "rejects invalid emails" do
-      invalid_emails = ["not-an-email", "foo@", "@bar.com"]
+      invalid_emails = [ "not-an-email", "foo@", "@bar.com" ]
 
       invalid_emails.each do |invalid_email|
         creator = build(:creator, email: invalid_email)
@@ -36,7 +36,7 @@ RSpec.describe Creator, type: :model do
       alice = create(:creator, name: "Alice")
       bob = create(:creator, name: "Bob")
 
-      expect(Creator.ordered_by_name).to eq([alice, bob, charlie])
+      expect(Creator.ordered_by_name).to eq([ alice, bob, charlie ])
     end
   end
 
