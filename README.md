@@ -2,6 +2,7 @@
 
 ![CI Status](https://github.com/springwq/creator-pulse/actions/workflows/ci.yml/badge.svg)
 ![Code Coverage](https://codecov.io/gh/springwq/creator-pulse/branch/main/graph/badge.svg)
+![CodeFactor](https://www.codefactor.io/repository/github/springwq/creator-pulse/badge)
 ![Security](https://img.shields.io/badge/Security-Brakeman%20%7C%20Bundler%20Audit-brightgreen?logo=security)
 ![Ruby Version](https://img.shields.io/badge/Ruby-4.0-red?logo=ruby&logoColor=white)
 ![Rails Version](https://img.shields.io/badge/Rails-8.1-red?logo=rubyonrails&logoColor=white)
