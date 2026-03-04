@@ -7,6 +7,7 @@ RSpec.describe Content, type: :model do
   # Validations
   it { should validate_presence_of(:title) }
   it { should validate_presence_of(:social_media_url) }
+  it { should validate_presence_of(:social_media_provider) }
 
   # URL format validation
   describe "social_media_url format" do
@@ -31,6 +32,15 @@ RSpec.describe Content, type: :model do
 
   # Enum
   it { should define_enum_for(:social_media_provider).with_values(instagram: 0, tiktok: 1, youtube: 2) }
+
+  describe "social_media_provider validation" do
+    it "rejects blank provider" do
+      content = build(:content, social_media_provider: "")
+
+      expect(content).not_to be_valid
+      expect(content.errors[:social_media_provider]).to include("can't be blank")
+    end
+  end
 
   # Enum scopes
   describe "enum scopes" do
