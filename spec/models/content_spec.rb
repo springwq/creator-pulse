@@ -10,9 +10,9 @@ RSpec.describe Content, type: :model do
   it { should validate_presence_of(:social_media_provider) }
 
   # URL format validation
-  describe "social_media_url format" do
-    it "accepts valid URLs" do
-      valid_urls = [ "https://instagram.com/p/123", "http://example.com" ]
+  describe 'social_media_url format' do
+    it 'accepts valid URLs' do
+      valid_urls = [ 'https://instagram.com/p/123', 'http://example.com' ]
 
       valid_urls.each do |url|
         content = build(:content, social_media_url: url)
@@ -20,8 +20,8 @@ RSpec.describe Content, type: :model do
       end
     end
 
-    it "rejects invalid URLs" do
-      invalid_urls = [ "not-a-url", "ftp://bad.com", "" ]
+    it 'rejects invalid URLs' do
+      invalid_urls = [ 'not-a-url', 'ftp://bad.com', '' ]
 
       invalid_urls.each do |url|
         content = build(:content, social_media_url: url)
@@ -33,9 +33,9 @@ RSpec.describe Content, type: :model do
   # Enum
   it { should define_enum_for(:social_media_provider).with_values(instagram: 0, tiktok: 1, youtube: 2) }
 
-  describe "social_media_provider validation" do
-    it "rejects blank provider" do
-      content = build(:content, social_media_provider: "")
+  describe 'social_media_provider validation' do
+    it 'rejects blank provider' do
+      content = build(:content, social_media_provider: '')
 
       expect(content).not_to be_valid
       expect(content.errors[:social_media_provider]).to include("can't be blank")
@@ -43,20 +43,20 @@ RSpec.describe Content, type: :model do
   end
 
   # Enum scopes
-  describe "enum scopes" do
+  describe 'enum scopes' do
     let!(:instagram_content) { create(:content, social_media_provider: :instagram) }
     let!(:tiktok_content) { create(:content, social_media_provider: :tiktok) }
     let!(:youtube_content) { create(:content, social_media_provider: :youtube) }
 
-    it "filters by instagram" do
+    it 'filters by instagram' do
       expect(Content.instagram).to contain_exactly(instagram_content)
     end
 
-    it "filters by tiktok" do
+    it 'filters by tiktok' do
       expect(Content.tiktok).to contain_exactly(tiktok_content)
     end
 
-    it "filters by youtube" do
+    it 'filters by youtube' do
       expect(Content.youtube).to contain_exactly(youtube_content)
     end
   end

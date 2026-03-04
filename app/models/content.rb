@@ -6,7 +6,7 @@ class Content < ApplicationRecord
   validates :title, presence: true
   validates :social_media_url, presence: true, format: {
     with: /\Ahttps?:\/\/.+\z/i,
-    message: "must be a valid URL starting with http:// or https://"
+    message: 'must be a valid URL starting with http:// or https://'
   }
   validates :social_media_provider, presence: true
   validates :social_media_provider, inclusion: { in: social_media_providers.keys }, allow_blank: true

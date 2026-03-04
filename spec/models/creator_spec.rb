@@ -13,14 +13,14 @@ RSpec.describe Creator, type: :model do
   it { should validate_uniqueness_of(:email) }
 
   # Email format validation
-  describe "email format validation" do
-    it "accepts valid emails" do
-      creator = build(:creator, email: "user@example.com")
+  describe 'email format validation' do
+    it 'accepts valid emails' do
+      creator = build(:creator, email: 'user@example.com')
       expect(creator).to be_valid
     end
 
-    it "rejects invalid emails" do
-      invalid_emails = [ "not-an-email", "foo@", "@bar.com" ]
+    it 'rejects invalid emails' do
+      invalid_emails = [ 'not-an-email', 'foo@', '@bar.com' ]
 
       invalid_emails.each do |invalid_email|
         creator = build(:creator, email: invalid_email)
@@ -30,18 +30,18 @@ RSpec.describe Creator, type: :model do
   end
 
   # Scopes
-  describe ".ordered_by_name" do
-    it "returns creators in alphabetical order by name" do
-      charlie = create(:creator, name: "Charlie")
-      alice = create(:creator, name: "Alice")
-      bob = create(:creator, name: "Bob")
+  describe '.ordered_by_name' do
+    it 'returns creators in alphabetical order by name' do
+      charlie = create(:creator, name: 'Charlie')
+      alice = create(:creator, name: 'Alice')
+      bob = create(:creator, name: 'Bob')
 
       expect(Creator.ordered_by_name).to eq([ alice, bob, charlie ])
     end
   end
 
-  describe ".with_content_count" do
-    it "returns creators with their content count" do
+  describe '.with_content_count' do
+    it 'returns creators with their content count' do
       creator_with_contents = create(:creator)
       create_list(:content, 3, creator: creator_with_contents)
 
@@ -57,28 +57,28 @@ RSpec.describe Creator, type: :model do
     end
   end
 
-  describe ".search_by_name" do
+  describe '.search_by_name' do
     before do
-      create(:creator, name: "Alice Johnson")
-      create(:creator, name: "Bob Smith")
-      create(:creator, name: "Charlie Alice")
+      create(:creator, name: 'Alice Johnson')
+      create(:creator, name: 'Bob Smith')
+      create(:creator, name: 'Charlie Alice')
     end
 
-    it "returns creators matching the search query (case insensitive)" do
-      results = Creator.search_by_name("alice")
+    it 'returns creators matching the search query (case insensitive)' do
+      results = Creator.search_by_name('alice')
 
       expect(results.count).to eq(2)
-      expect(results.pluck(:name)).to contain_exactly("Alice Johnson", "Charlie Alice")
+      expect(results.pluck(:name)).to contain_exactly('Alice Johnson', 'Charlie Alice')
     end
 
-    it "performs case-insensitive search" do
-      results = Creator.search_by_name("ALICE")
+    it 'performs case-insensitive search' do
+      results = Creator.search_by_name('ALICE')
 
       expect(results.count).to eq(2)
     end
 
-    it "returns empty when no match is found" do
-      results = Creator.search_by_name("Zara")
+    it 'returns empty when no match is found' do
+      results = Creator.search_by_name('Zara')
 
       expect(results).to be_empty
     end

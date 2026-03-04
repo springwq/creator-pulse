@@ -7,7 +7,7 @@ module Contents
 
     def call
       creator = Creator.find_by(id: @creator_id)
-      return BaseResult.failure({ creator: [ "not found" ] }) unless creator
+      return BaseResult.failure({ creator: [ 'not found' ] }) unless creator
 
       content = creator.contents.build(@params)
 

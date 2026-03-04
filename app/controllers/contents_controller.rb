@@ -10,7 +10,7 @@ class ContentsController < ApplicationController
     result = Contents::Create.new(@creator.id, content_params).call
 
     if result.success?
-      redirect_to creator_path(@creator), notice: "Content was successfully created."
+      redirect_to creator_path(@creator), notice: 'Content was successfully created.'
     else
       @content = @creator.contents.build(content_params)
       result.errors.each do |field, messages|
@@ -25,7 +25,7 @@ class ContentsController < ApplicationController
 
   def update
     if @content.update(content_params)
-      redirect_to creator_path(@creator), notice: "Content was successfully updated."
+      redirect_to creator_path(@creator), notice: 'Content was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class ContentsController < ApplicationController
 
   def destroy
     @content.destroy
-    redirect_to creator_path(@creator), notice: "Content was successfully deleted."
+    redirect_to creator_path(@creator), notice: 'Content was successfully deleted.'
   end
 
   private

@@ -7,8 +7,8 @@ class Creator < ApplicationRecord
   scope :ordered_by_name, -> { order(:name) }
   scope :with_content_count, -> {
     left_joins(:contents)
-      .select("creators.*, COUNT(contents.id) AS content_count")
-      .group("creators.id")
+      .select('creators.*, COUNT(contents.id) AS content_count')
+      .group('creators.id')
   }
-  scope :search_by_name, ->(query) { where("name ILIKE ?", "%#{sanitize_sql_like(query)}%") if query.present? }
+  scope :search_by_name, ->(query) { where('name ILIKE ?', "%#{sanitize_sql_like(query)}%") if query.present? }
 end

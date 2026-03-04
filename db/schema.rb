@@ -12,26 +12,26 @@
 
 ActiveRecord::Schema[8.1].define(version: 2026_03_04_113000) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "pg_catalog.plpgsql"
+  enable_extension 'pg_catalog.plpgsql'
 
-  create_table "contents", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.bigint "creator_id", null: false
-    t.integer "social_media_provider", null: false
-    t.string "social_media_url", null: false
-    t.string "title", null: false
-    t.datetime "updated_at", null: false
-    t.index ["creator_id"], name: "index_contents_on_creator_id"
-    t.index ["social_media_provider"], name: "index_contents_on_social_media_provider"
+  create_table 'contents', force: :cascade do |t|
+    t.datetime 'created_at', null: false
+    t.bigint 'creator_id', null: false
+    t.integer 'social_media_provider', null: false
+    t.string 'social_media_url', null: false
+    t.string 'title', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['creator_id'], name: 'index_contents_on_creator_id'
+    t.index ['social_media_provider'], name: 'index_contents_on_social_media_provider'
   end
 
-  create_table "creators", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.string "email", null: false
-    t.string "name", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_creators_on_email", unique: true
+  create_table 'creators', force: :cascade do |t|
+    t.datetime 'created_at', null: false
+    t.string 'email', null: false
+    t.string 'name', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['email'], name: 'index_creators_on_email', unique: true
   end
 
-  add_foreign_key "contents", "creators"
+  add_foreign_key 'contents', 'creators'
 end
