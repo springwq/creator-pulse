@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :content do
-    title { "MyString" }
-    social_media_url { "MyString" }
-    social_media_provider { 1 }
-    creator { nil }
+    sequence(:title) { |n| "Content #{n}" }
+    social_media_url { "https://instagram.com/p/example123" }
+    social_media_provider { :instagram }
+    association :creator
   end
 end
