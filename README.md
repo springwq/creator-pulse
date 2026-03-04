@@ -1,6 +1,7 @@
 # CreatorPulse
 
 ![CI Status](https://github.com/springwq/creator-pulse/actions/workflows/ci.yml/badge.svg)
+![Security](https://img.shields.io/badge/Security-Brakeman%20%7C%20Bundler%20Audit-brightgreen?logo=security)
 ![Ruby Version](https://img.shields.io/badge/Ruby-4.0-red?logo=ruby&logoColor=white)
 ![Rails Version](https://img.shields.io/badge/Rails-8.1-red?logo=rubyonrails&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14+-blue?logo=postgresql&logoColor=white)
