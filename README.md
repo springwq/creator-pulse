@@ -1,5 +1,10 @@
 # CreatorPulse
 
+![Ruby Version](https://img.shields.io/badge/Ruby-4.0-red?logo=ruby&logoColor=white)
+![Rails Version](https://img.shields.io/badge/Rails-8.1-red?logo=rubyonrails&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14+-blue?logo=postgresql&logoColor=white)
+![Maintenance](https://img.shields.io/badge/Maintained-yes-green)
+
 A creative content management dashboard built for SocialScale. Manage influencer creators and their social media content across Instagram, TikTok, and YouTube.
 
 ## Features
