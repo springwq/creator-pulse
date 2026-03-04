@@ -1,5 +1,6 @@
 # CreatorPulse
 
+![CI Status](https://github.com/springwq/creator-pulse/actions/workflows/ci.yml/badge.svg)
 ![Ruby Version](https://img.shields.io/badge/Ruby-4.0-red?logo=ruby&logoColor=white)
 ![Rails Version](https://img.shields.io/badge/Rails-8.1-red?logo=rubyonrails&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14+-blue?logo=postgresql&logoColor=white)
